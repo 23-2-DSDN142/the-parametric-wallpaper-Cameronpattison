@@ -1,4 +1,12 @@
-var eyeheight = 30; //30
+var eyeSize = 30; //30. Changes the size of both the eye and pupil.
+
+var eyeHeight = 60; //60. changesHeight of both the eye and pupil.
+
+var mouthHeight = 100; //100. changes the height of the mouth.
+
+var mouthShape = 10; //10. changes the curve of the mouth, numbers below 0 and above 10 make no chnage or cause errros. 
+
+//let coulour = color(255, 204, 0);   in My_symbol function, colour of mouth can be changed. 
 
 
 
@@ -14,23 +22,30 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.grid_settings.cell_width  = 200;
   pWallpaper.grid_settings.cell_height = 200;
   pWallpaper.grid_settings.row_offset  = 50;
+  
 }
 
 function wallpaper_background() {
   background(240, 240, 255); //light honeydew green colour
+
+
 }
 
 function my_symbol() {
   // Set the center of the BMO/Beemo
-  let centerX = width / 13.44;
+  let centerX = width / 14.7; //13.44
   let centerY = height / 8;
+  let coulour = color(220, 0, 0, 140);
+
 
   // Draw BMO/Beemo
+  
   draw_body(centerX, centerY);
   draw_face(centerX, centerY);
   draw_eyes(centerX, centerY - 50);
-  draw_mouth(centerX, centerY);
   draw_buttons(centerX, centerY);
+  draw_mouth(centerX, centerY, coulour);
+
 }
 
 function draw_body(x, y) {
@@ -45,19 +60,22 @@ function draw_face(x, y) {
 
 function draw_eyes(x, y) {
   fill(255); // White color for eyes
-  ellipse(x - 30, y, 30, eyeheight); // Left eye
-  ellipse(x + 30, y, 30, eyeheight); // Right eye
+  ellipse(x - 30, eyeHeight, eyeSize, eyeSize); // Left eye
+  ellipse(x + 30, eyeHeight, eyeSize, eyeSize); // Right eye
   fill(0); // Black color for pupils
-  ellipse(x - 30, y, 15, 15); // Left pupil
-  ellipse(x + 30, y, 15, 15); // Right pupil
+  ellipse(x - 30, eyeHeight, eyeSize/2, eyeSize/2); // Left pupil
+  ellipse(x + 30, eyeHeight, eyeSize/2, eyeSize/2); // Right pupil
+
 }
 
-function draw_mouth(x, y) {
-  fill(255); // White color for mouth
-  rect(x - 40, y, 80, 20, 10); // Mouth
+function draw_mouth(x, y, coulour) {
+
+  fill(coulour);// White color for mouth
+  rect(x - 40, mouthHeight, 80, 20, 10); // Mouth
 }
 
 function draw_buttons(x, y) {
+  
   // Top-left button
   fill(238, 187, 209); // Pink color for top-left button
   ellipse(x , y + 55, 30, 30); // Circle button
