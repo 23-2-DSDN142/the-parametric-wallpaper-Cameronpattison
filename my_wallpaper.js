@@ -25,35 +25,31 @@ function setup_wallpaper(pWallpaper) {
 
 function wallpaper_background() {
   background(240, 240, 255); //light honeydew green colour
-
-
 }
 
 function my_symbol() {
   // Set the center of the BMO/Beemo
-  let centerX = width / 14.7; //13.44
-  let centerY = height / 8;
   let coulour = color(255);
 
 
   // Draw BMO/Beemo
   
-  draw_body(centerX, centerY);
-  draw_face(centerX, centerY);
-  draw_eyes(centerX, centerY - 50);
-  draw_buttons(centerX, centerY);
-  draw_mouth(centerX, centerY, coulour);
+  draw_body(10, 10); // x and y = 100
+  draw_face(25, 25);
+  draw_eyes(100, 100 - 50);
+  draw_buttons(100, 100);
+  draw_mouth(60, 90);
 
 }
 
 function draw_body(x, y) {
   fill(98,175,183); // Green color for body
-  rect(x - 90, y - 90, 180, 180, 20); // Square body
+  rect(x, y, 180, 180, 20); // Square body
 }
 
 function draw_face(x, y) {
   fill(99,189,164); // Green color for body
-  rect(x - 75, y - 75, 150, 100, 20); // Square body
+  rect(x, y, 150, 100, 20); // Square body
 }
 
 function draw_eyes(x, y) {
@@ -64,22 +60,15 @@ function draw_eyes(x, y) {
   ellipse(x - 30, eyeHeight, eyeSize/2, eyeSize/2); // Left pupil
   ellipse(x + 30, eyeHeight, eyeSize/2, eyeSize/2); // Right pupil
   
-
-
 }
 
-function draw_mouth(x, y, coulour) {
-
-  fill(coulour);// White color for mouth
-  rect(x - 40, mouthHeight, 80, 20, 10); // Mouth
-  
-
+function draw_mouth(x, y) {
+  fill(255);// White color for mouth
+  rect(x, y, 80, 20, 10); // Mouth
 
 }
 
 function draw_buttons(x, y) {
-
-
 
   // Top-left button
   fill(242,5,83); // Pink color for top-left button
