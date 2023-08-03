@@ -1,8 +1,8 @@
 var eyeSize = 30; //30. Changes the size of both the eye and pupil.
 
-var eyeHeight = 60; //60. changesHeight of both the eye and pupil.
+var eyeHeight = 50; //60. changesHeight of both the eye and pupil.
 
-var mouthHeight = 100; //100. changes the height of the mouth.
+var mouthHeight = 90; //100. changes the height of the mouth.
 
 var mouthShape = 10; //10. changes the curve of the mouth, numbers below 0 and above 10 make no chnage or cause errros. 
 
@@ -11,10 +11,8 @@ var mouthShape = 10; //10. changes the curve of the mouth, numbers below 0 and a
 
 
 
-
-
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GRID_WALLPAPER);
   pWallpaper.resolution(FIT_TO_SCREEN);
   pWallpaper.show_guide(true); //set this to false when you're ready to print
 
@@ -35,7 +33,7 @@ function my_symbol() {
   // Set the center of the BMO/Beemo
   let centerX = width / 14.7; //13.44
   let centerY = height / 8;
-  let coulour = color(220, 0, 0, 140);
+  let coulour = color(255);
 
 
   // Draw BMO/Beemo
@@ -49,12 +47,12 @@ function my_symbol() {
 }
 
 function draw_body(x, y) {
-  fill(201, 228, 206); // Green color for body
+  fill(98,175,183); // Green color for body
   rect(x - 90, y - 90, 180, 180, 20); // Square body
 }
 
 function draw_face(x, y) {
-  fill(201, 228, 150); // Green color for body
+  fill(99,189,164); // Green color for body
   rect(x - 75, y - 75, 150, 100, 20); // Square body
 }
 
@@ -65,6 +63,8 @@ function draw_eyes(x, y) {
   fill(0); // Black color for pupils
   ellipse(x - 30, eyeHeight, eyeSize/2, eyeSize/2); // Left pupil
   ellipse(x + 30, eyeHeight, eyeSize/2, eyeSize/2); // Right pupil
+  
+
 
 }
 
@@ -72,20 +72,32 @@ function draw_mouth(x, y, coulour) {
 
   fill(coulour);// White color for mouth
   rect(x - 40, mouthHeight, 80, 20, 10); // Mouth
+  
+
+
 }
 
 function draw_buttons(x, y) {
-  
+
+
+
   // Top-left button
-  fill(238, 187, 209); // Pink color for top-left button
+  fill(242,5,83); // Pink color for top-left button
   ellipse(x , y + 55, 30, 30); // Circle button
 
   // Top-right button
-  fill(255, 204, 0); // Yellow color for top-right button
+  fill(0,0,255); // Yellow color for top-right button
   triangle(x + 50, y + 41, x + 65, y + 70, x + 35, y + 70); // Triangle button
 
   // Bottom-left button
-  fill(173, 216, 230); // Light blue color for bottom-left button
+  fill(255,236,71); // Light blue color for bottom-left button
   rect(x - 60, y + 40, 15, 30, 5); // Rectangle button
 
 }
+
+
+
+
+
+
+
