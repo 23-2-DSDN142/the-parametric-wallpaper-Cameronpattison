@@ -1,20 +1,15 @@
 var eyeSize = 30; //30. Changes the size of both the eye and pupil.
-
-var eyeHeight = 50; //60. changesHeight of both the eye and pupil.
-
-var mouthHeight = 90; //100. changes the height of the mouth.
-
+var eyeHeight = 60; //60. changesHeight of both the eye and pupil.
+var mouthHeight = 90; //90. changes the height of the mouth.
 var mouthShape = 10; //10. changes the curve of the mouth, numbers below 0 and above 10 make no chnage or cause errros. 
-
-//let coulour = color(255, 204, 0);   in My_symbol function, colour of mouth can be changed. 
-
-
+var newMouthShape = 5; // Define a new mouth shape value
+//var bodyColor = color(98, 175, 183);  In my_symbol Default body color (98,175,183)
 
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(true); //set this to false when you're ready to print
+  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
@@ -28,13 +23,12 @@ function wallpaper_background() {
 }
 
 function my_symbol() {
-  // Set the center of the BMO/Beemo
-  let coulour = color(255);
 
+  var bodyColor = color(98, 175, 183); // Default body color (98,175,183)
 
   // Draw BMO/Beemo
   
-  draw_body(10, 10); // x and y = 100
+  draw_body(10, 10, bodyColor); // x and y = 100
   draw_face(25, 25);
   draw_eyes(100, 100 - 50);
   draw_buttons(100, 100);
@@ -42,8 +36,8 @@ function my_symbol() {
 
 }
 
-function draw_body(x, y) {
-  fill(98,175,183); // Green color for body
+function draw_body(x, y, bodyColor) {
+  fill(bodyColor); // Green color for body
   rect(x, y, 180, 180, 20); // Square body
 }
 
@@ -64,8 +58,13 @@ function draw_eyes(x, y) {
 
 function draw_mouth(x, y) {
   fill(255);// White color for mouth
-  rect(x, y, 80, 20, 10); // Mouth
+  if (mouthShape >= 0 && mouthShape <= 10) { // Check if the mouth shape value is valid
+    rect(x, mouthHeight, 80, 20, mouthShape); // Mouth with the defined mouth shape
+  } else {
+    rect(x, mouthHeight, 80, 20, newMouthShape); // Use the new mouth shape value if the original one is invalid
+  }
 
+  //rect(x, mouthHeight, 80, 20, mouthShape); // Mouth
 }
 
 function draw_buttons(x, y) {
@@ -81,12 +80,4 @@ function draw_buttons(x, y) {
   // Bottom-left button
   fill(255,236,71); // Light blue color for bottom-left button
   rect(x - 60, y + 40, 15, 30, 5); // Rectangle button
-
 }
-
-
-
-
-
-
-
